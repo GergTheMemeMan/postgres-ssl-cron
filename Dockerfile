@@ -14,7 +14,7 @@ COPY --chmod=755 init-ssl.sh /docker-entrypoint-initdb.d/init-ssl.sh
 COPY --chmod=755 wrapper.sh /usr/local/bin/wrapper.sh
 
 RUN echo "shared_preload_libraries = 'pg_cron'" >> /usr/share/postgresql/postgresql.conf.sample
-RUN echo "cron.database_name = 'railway'" >> /usr/share/postgresql/postgresql.conf.sample
+RUN echo "cron.database_name = 'goonData'" >> /usr/share/postgresql/postgresql.conf.sample
 
 ENTRYPOINT ["wrapper.sh"]
 CMD ["postgres", "-p", "5432", "-c", "listen_addresses=*"]
